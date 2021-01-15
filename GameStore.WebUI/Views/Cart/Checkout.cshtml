@@ -1,0 +1,71 @@
+﻿@model GameStore.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "GameStore: Panel zamówienia";
+}
+
+<h2>Panel zamówienia!</h2>
+<p>Proszę podać prawdziwe dane!</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+    <h3>Dane</h3>
+    <div class="form-group">
+        <label>Imię:</label>
+        @Html.TextBoxFor(x => x.firstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nazwisko:</label>
+        @Html.TextBoxFor(x => x.lastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Email:</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        <label>Numer Karty:</label>
+        @Html.TextBoxFor(x => x.CartNumber,new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        <label>Data Ważności:</label>
+        @Html.TextBoxFor(m => m.ExpireDate, new { type = "month" })
+    </div>
+    <div class="form-group">
+        <label>CVC:</label>
+        @Html.TextBoxFor(m => m.CVC,new { @class = "form-control"})
+    </div>
+    <h3>Adres dostawy</h3>
+    <div class="form-group">
+        <label>Państwo:</label>
+        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Miasto:</label>
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ulica:</label>
+        @Html.TextBoxFor(x => x.Street, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Kod pocztowy:</label>
+        @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Numer domu/Domu i lokalu:</label>
+        @Html.TextBoxFor(x => x.NumerDomu, new { @class = "form-control"})
+    </div>
+
+    <h3>Opcje</h3>
+    <div class="checkbox">
+        <label>
+            @Html.EditorFor(x => x.GiftWrap)
+            Użyć świąteczne opakowanie?
+        </label>
+    </div>
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Zamówić" />
+    </div>
+}

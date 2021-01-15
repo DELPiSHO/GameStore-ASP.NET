@@ -1,0 +1,31 @@
+﻿@model GameStore.WebUI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Wejście do systemu</h3>
+    </div>
+    <div class="panel-body">
+        <p class="lead">Proszę wejść do systemu aby mieć dostęp do Admin Panel:</p>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group"> 
+                <label>Username:</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Hasło:</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+
+            <input type="submit" value="Wejść" class="btn btn-primary" />            
+                @Html.ActionLink("Strona główna", "List", "Game", null,
+         new { @class = "btn btn-default" })
+        }
+    </div>
+</div>
